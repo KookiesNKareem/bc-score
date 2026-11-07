@@ -1,0 +1,6 @@
+toxin,toxin_in_file_names,family,receptor_site,organism,UniProt,UniProt_name,residues_in_UniProt,length_aa,sequence,disulfides,native_C_terminus_amidated,structure_prepared_as_design_target
+Cn2,cn2,beta,site 4,Centruroides noxius,P01495,Beta-mammal toxin Cn2,17-82,66,KEGYLVDKNTGCKYECLKLGDNDYCLRECKQQYGKGAGGYCYAFACWCTHLYEQAIVWPLPNKRCS,C12-C65; C16-C41; C25-C46; C29-C48,yes,25IH chain D
+Ts1,ts1,beta,site 4,Tityus serrulatus,P15226,Beta-mammal/insect toxin Ts1,21-81,61,KEGYLMDHEGCKLSCFIRPSGYCGRECGIKKGSSGYCAWPACYCYGLPNWVKVWDRATNKC,C11-C61; C15-C37; C23-C42; C27-C44,yes,1NPI chain A
+AaH II,aah2,alpha,site 3,Androctonus australis,P01484,Alpha-mammal toxin AaH2,20-83,64,VKDGYIVDDVNCTYFCGRNAYCNEECTKLKGESGYCQWASPYGNACYCYKLPDHVRTKGPGRCH,C12-C63; C16-C36; C22-C46; C26-C48,yes,1AHO chain A
+AaH I,aah1,alpha,site 3,Androctonus australis,P01479,Neurotoxin-1'',20-82,63,KRDGYIVYPNNCVYHCVPPCDGLCKKNGGSSGSCSFLVPSGLACWCKDLPDNVPIKDTSRKCT,C12-C62; C16-C34; C20-C44; C24-C46,no,AF-P01479-F1 v6 (trimmed to mature 1-63)
+LqhIII,lqh3,alpha-like,site 3,Leiurus hebraeus,P56678,Alpha-like toxin Lqh3,1-67,67,VRDGYIAQPENCVYHCFPGSSGCDTLCKEKGGTSGHCGFKVGHGLACWCNALPDNVGIIVEGEKCHS,C12-C65; C16-C37; C23-C47; C27-C49,yes,7K18 chain B

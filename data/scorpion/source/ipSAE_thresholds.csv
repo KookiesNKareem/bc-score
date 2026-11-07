@@ -1,0 +1,16 @@
+toxin,predictor,ipSAE_threshold
+Cn2,ESMFold2-Fast,0.15
+Cn2,ESMFold2,0.15
+Cn2,Protenix v2,0.54
+Ts1,ESMFold2-Fast,0.34
+Ts1,ESMFold2,0.15
+Ts1,Protenix v2,0.25
+AaH II,ESMFold2-Fast,0.67
+AaH II,ESMFold2,0.17
+AaH II,Protenix v2,0.71
+AaH I,ESMFold2-Fast,0.15
+AaH I,ESMFold2,0.15
+AaH I,Protenix v2,0.72
+LqhIII,ESMFold2-Fast,0.15
+LqhIII,ESMFold2,0.15
+LqhIII,Protenix v2,0.54

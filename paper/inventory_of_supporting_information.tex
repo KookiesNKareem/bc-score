@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,pdfauthor={},pdftitle={Inventory of Supporting Information}]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\emergencystretch=2em
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Inventory of Supporting Information}}\\[0.5em]
+    {\large \textbf{Backbone-conditioned sidechain reconstruction improves prioritization of de novo protein binders}}\\[0.35em]
+    \textbf{Anonymous Authors}\\
+    \small (Author names, affiliations, and contact details are provided in the Cover Letter for double-anonymized peer review)
+\end{center}
+
+\vspace{0.5em}
+\hrule
+\vspace{0.75em}
+
+\section*{1. Summary of Extended Data Display Items (7 Items Total; Maximum Permitted: 10)}
+\begin{itemize}
+    \item \textbf{Extended Data Figure 1} (\texttt{figures/ext\_fig1\_supporting\_panels.pdf}): Supporting hybrid ranking, Stage-1 cascade recall, and internal optimization analyses.
+    \item \textbf{Extended Data Figure 2} (\texttt{figures/ext\_fig3\_same\_epitope\_pairs.pdf}): Fine-grained pairwise discrimination among same-epitope candidate binders.
+    \item \textbf{Extended Data Figure 3} (\texttt{figures/ext\_fig2\_pose\_funnel\_codesign.pdf}): Partition-function free-energy co-design resolves the single-pose funnel degradation mode across 39 failed designs.
+    \item \textbf{Extended Data Table 1}: Held-Out Crystal Sidechain Reconstruction Accuracy ($n = 60$ Validation Monomers, $12,248$ Residues; $n = 50$ Crystal Complexes).
+    \item \textbf{Extended Data Table 2}: Complete 13-Fold Leave-One-Target-Out (LOTO) Benchmark and Sensitivity Analysis Across $n = 3,532$ De Novo Binders.
+    \item \textbf{Extended Data Table 3}: Retrospective Two-Stage Screening Cascade Simulation Across $n = 3,532$ Candidates and $13$ Targets ($391$ Verified Binders).
+    \item \textbf{Extended Data Table 4}: Held-Out External Validation on Two Public Experimental Campaigns.
+\end{itemize}
+
+\section*{2. Legends for Extended Data Figures and Tables}
+
+\textbf{Extended Data Figure 1 | Supporting hybrid ranking, Stage-1 cascade recall, and internal optimization analyses.}
+\textbf{a}, Pooled retrospective hit recovery across selection budgets for the \texttt{Boltz-1} and \texttt{AlphaFold3} ensemble ($n = 3,532$ complexes, $391$ binders; grey dotted line marks random expectation), comparing confidence alone (grey dashed curve), standard Rosetta descriptors (blue curve), and \texttt{BC-Score} hybrid reranking (solid teal curve). At a budget of $200$ candidates, $94$, $115$, and $127$ binders are recovered, respectively.
+\textbf{b}, Point estimates (filled circles) and horizontal error bars showing $95\%$ target-stratified paired bootstrap confidence intervals ($B = 10,000$ resamples across $n = 3,532$ complexes) for $\Delta\text{AP}$ (Pooled AP in teal, 13-target Mean AP in navy; two-sided paired bootstrap $P < 0.001$) when augmenting \texttt{Boltz-1}, \texttt{AlphaFold3}, or their ensemble with \texttt{BC-Score} instead of standard Overath Rosetta physicochemical descriptors.
+\textbf{c}, Per-target Stage-1 binder retention distributions across all $13$ targets ($n = 391$ total binders) at retention budgets $\rho = 25\%$ ($4.0\times$ GPU speedup) and $\rho = 50\%$ ($2.0\times$ speedup), showing individual target recall values (jittered circles), interquartile ranges (vertical black lines), and pooled binder recall (filled diamonds) for \texttt{SpatialPPI v2} (red), \texttt{PyRosetta} $\Delta G_{\text{sep}}$ (grey), and \texttt{BC-Score} (navy).
+\textbf{d--f}, Paired changes under partition-function free-energy co-design in interface score (\textbf{d}, $34/39$ improved, two-sided Wilcoxon signed-rank $P = 2.1\times 10^{-8}$), buried unsatisfied polar penalty (\textbf{e}, $33/39$ improved, $P = 8.9\times 10^{-8}$), and alanine-scan specificity $\Delta\Delta G$ (\textbf{f}, $34/39$ improved, $P = 2.1\times 10^{-8}$) across $n = 39$ initially failed designs ($3$ per target). Filled teal circles denote improvement, filled red circles denote worsening, and black circles with vertical error bars show medians and interquartile ranges. Values reflect computational objective optimization on fixed backbones prior to experimental retesting.
+
+\textbf{Extended Data Figure 2 | Fine-grained pairwise discrimination among same-epitope candidate binders.}
+Point estimates and error bars (shaded bands and vertical bars) showing $95\%$ cluster-bootstrap confidence intervals ($1,000$ resamples at the unique candidate binder level across $n = 3,532$ complexes) for pairwise ranking accuracy across all same-target binder and non-binder pairs sharing an increasingly identical receptor contact footprint ($\text{C}_\alpha < 8.5\,\text{\AA}$), from Jaccard contact overlap $\ge 0.50$ ($n = 326,474$ pairs) to $\ge 0.90$ ($n = 4,124$ pairs). Curves compare default \texttt{BC-Score} (solid teal curve with filled circles) and \texttt{BC-Score-5M} (dashed navy curve with open squares) against \texttt{PyRosetta} $\Delta G_{\text{sep}}$ (orange curve), supplied-sidechain scoring (red curve), \texttt{ESM-2} sequence log-likelihood (purple curve), and backbone-only inverse folding (grey curve; horizontal dashed line indicates $50\%$ random chance; two-sided cluster-bootstrap $P < 0.001$ for \texttt{BC-Score} versus all baselines at overlap $\ge 0.50$).
+
+\textbf{Extended Data Figure 3 | Partition-function free-energy co-design resolves the single-pose funnel degradation mode across 39 failed designs.}
+\textbf{a}, Paired change in pose-funnel RMSD (after minus before optimization) across all $n = 39$ initially failed Overath designs ($3$ per target) under single-pose coordinate descent ($E(\mathbf{x}_0, \mathbf{s})$), where $20$ designs sharpen the pose funnel (filled teal bars, $\Delta\text{RMSD} < 0$) and $19$ worsen (filled red bars, $\Delta\text{RMSD} > 0$; median $\Delta\text{RMSD} = -0.01\,\text{\AA}$, two-sided Wilcoxon signed-rank $P = 0.72$) due to unpenalized competing decoy basins.
+\textbf{b}, Paired change in pose-funnel RMSD across the same $n = 39$ designs under statistical-mechanics partition-function free-energy co-design ($\Delta F_{\text{pose}}(\mathbf{x}_0, \mathbf{s}) = E_\theta(\mathbf{x}_0, \mathbf{s}) - F_{\text{decoy}}(\mathbf{s})$), which sharpens the 24-pose funnel on $\mathbf{37}$ of $\mathbf{39}$ designs (filled teal bars; mean $0.95\,\text{\AA} \to 0.74\,\text{\AA}$, two-sided Wilcoxon signed-rank $P = 2.3\times 10^{-9}$) and generalizes to an independent held-out 24-pose $\text{SE}(3)$ verification ensemble on $\mathbf{33}$ of $\mathbf{39}$ designs (mean $2.22\,\text{\AA} \to 1.06\,\text{\AA}$, $P = 1.3\times 10^{-4}$).
+
+\textbf{Extended Data Table 1 | Held-Out Crystal Sidechain Reconstruction Accuracy ($n = 60$ Validation Monomers, $12,248$ Residues; $n = 50$ Crystal Complexes).}
+Our 2-Point $\text{SE}(3)$ GNN reconstructs sidechain centroid ($\hat{\mathbf{s}}_i^{\text{recon}}$) and distal functional tip ($\hat{\mathbf{t}}_i^{\text{recon}}$) coordinates strictly from backbone atoms ($\text{N}, \text{C}_\alpha, \text{C}, \text{O}, \text{C}_\beta$) and amino acid identity, outperforming a canonical rigid-backbone local-frame template across all residue classes and at crystal complex interfaces ($<8.5\,\text{\AA}$ $\text{C}_\alpha$ distance). Values report Mean Absolute Error (MAE, in $\text{\AA}$) and the percentage of residues reconstructed within $1.0\,\text{\AA}$ of native crystal coordinates ($P < 10^{-15}$ by two-sided paired Wilcoxon signed-rank test across $n = 12,248$ residues).
+
+\textbf{Extended Data Table 2 | Complete 13-Fold Leave-One-Target-Out (LOTO) Benchmark and Sensitivity Analysis Across $n = 3,532$ De Novo Binders.}
+Standalone input-PDB evaluators operate strictly on input design PDB structures without co-folding ($0.043\,\text{s}$ per complex on an NVIDIA A100 GPU for \texttt{BC-Score} versus $35\text{--}180\,\text{s}$ on the same A100 GPU for co-folding). Columns report Pooled Global AP ($n = 3,532$), unweighted 13-target Mean Target AP, 11-target Multi-Hit Mean AP ($n = 3,477$), and Pooled AP excluding \texttt{FGFR2} ($n = 1,409$). Paired differences ($\Delta\text{Global AP}$), $95\%$ confidence intervals, two-sided paired bootstrap $P$ values ($B = 10,000$ target-stratified resamples), and Benjamini--Hochberg FDR $q$-values are reported relative to the reference baseline indicated in each block.
+
+\textbf{Extended Data Table 3 | Retrospective Two-Stage Screening Cascade Simulation Across $n = 3,532$ Candidates and $13$ Targets ($391$ Verified Binders).}
+For each Stage-1 filter and per-target retention fraction $\rho$, candidates are ranked within each target by their out-of-fold Stage-1 score, and only the top $\lceil \rho N_t \rceil$ survivors are passed to Stage-2 \texttt{AlphaFold3} co-folding ($180\,\text{s}$ per complex on an NVIDIA A100 GPU). Columns report Stage-1 pooled binder recall, across-target mean and median recall ($n = 13$ targets), and verified binders recovered in the Top-10 per target (maximum $130$) and Global Top-200 (in parentheses). Per-target recall distributions are shown in Extended Data Fig.~1c.
+
+\textbf{Extended Data Table 4 | Held-Out External Validation on Two Public Experimental Campaigns.}
+All \texttt{BC-Score} feature definitions, signs, checkpoints, and Overath-fitted normalization parameters were frozen prior to evaluation and applied without modification. On \texttt{Nipah-G} (\texttt{nipah-binder-competition-results}; $n = 881$ \texttt{Boltz-2}-predicted complexes, $100$ binders), Pooled AP is shown with $95\%$ bootstrap confidence intervals ($B = 10,000$ resamples) in brackets, alongside AUROC and top-$K$ hit recovery at $K=25$ and $K=50$. On \texttt{Scorpion} (\texttt{Anthropic/scorpion-toxin-binder-design}; $n = 243$ raw upstream pre-co-fold design PDB structures across $5$ targets; \texttt{ESMFold2} denotes the CZ Biohub \texttt{ESMFold2} complex predictor), point estimates are reported across all $21$ Adaptyv Bio binding hits with sensitivity point estimates on the $12$ Twist-confirmed publication hits shown in brackets, and top-$K$ recovery is reported at $K=20$ and $K=50$.
+
+\section*{3. Source Data Files (Excel Format, Linked to Figures)}
+\begin{itemize}
+    \item \texttt{source\_data/Source\_Data\_Fig1.xlsx}: Linked to \textbf{Figure 1} (Mdm2 interface residue centroid reconstruction discrepancy vectors and crystal monomer validation statistics).
+    \item \texttt{source\_data/Source\_Data\_Fig2.xlsx}: Linked to \textbf{Figure 2} (13-fold LOTO benchmark summary metrics, $95\%$ bootstrap confidence intervals, per-target AP across all $13$ targets, and candidate-level out-of-fold scores across $n = 3,532$ designs).
+    \item \texttt{source\_data/Source\_Data\_Fig3.xlsx}: Linked to \textbf{Figure 3} (4-way matched sidechain source attribution ablation and C1--C5 module-level within-target AP across $11$ multi-hit campaigns).
+    \item \texttt{source\_data/Source\_Data\_Fig4.xlsx}: Linked to \textbf{Figure 4} (Two-stage cascade curve across retention budgets $\rho \in [0\%, 100\%]$, Top-10/target and Top-200 hit recovery, and hybrid $\Delta\text{AP}$ bootstrap comparisons).
+    \item \texttt{source\_data/Source\_Data\_Fig5.xlsx}: Linked to \textbf{Figure 5} (Held-out \texttt{Nipah-G} [$n=881$] and \texttt{Scorpion} [$n=243$] external validation predictions, summary metrics, and batched A100 GPU / CPU stage latency breakdown).
+    \item \texttt{source\_data/Source\_Data\_Extended\_Data\_Fig1.xlsx}: Linked to \textbf{Extended Data Figure 1} (Cumulative ensemble hit recovery, hybrid $\Delta\text{AP}$, per-target Stage-1 recall at $\rho = 25\%$ and $\rho = 50\%$, and 39-scaffold optimization trajectories).
+    \item \texttt{source\_data/Source\_Data\_Extended\_Data\_Fig2.xlsx}: Linked to \textbf{Extended Data Figure 2} (Pairwise ranking accuracy and $95\%$ cluster-bootstrap confidence intervals across Jaccard epitope overlap thresholds $\ge 0.50$ to $\ge 0.90$).
+    \item \texttt{source\_data/Source\_Data\_Extended\_Data\_Fig3.xlsx}: Linked to \textbf{Extended Data Figure 3} (Single-pose versus partition-function free-energy co-design pose-funnel RMSD changes across all $n = 39$ failed designs).
+\end{itemize}
+
+\end{document}
